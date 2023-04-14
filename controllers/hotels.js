@@ -1,82 +1,3 @@
-// import { v4 as uuid } from 'uuid';
-
-// let hotels = [
-//     {   name: 'Grand Hotel',
-//         location: 'New York',
-//         rating: 4.7,
-//         checkAvailability: function() {
-//           console.log('Checking availability...');
-//         },
-//         bookRoom: function() {
-//           console.log('Booking room...');
-//         }
-//     },
-//     {   name: 'Papandayan Resort',
-//         location: 'Bandung',
-//         rating: 4.8,
-//         checkAvailability: function() {
-//           console.log('Checking availability...');
-//         },
-//         bookRoom: function() {
-//           console.log('Booking room...');
-//         }
-//     },
-//     {   name: 'Hotel 101',
-//         location: 'Jakarta',
-//         rating: 4.5,
-//         checkAvailability: function() {
-//         console.log('Checking availability...');
-//     },
-//         bookRoom: function() {
-//           console.log('Booking room...');
-//     }
-//     },
-//     {   name: 'Djaakarta Hotel',
-//         location: 'Jakarta',
-//         rating: 4.5,
-//         checkAvailability: function() {
-//           console.log('Checking availability...');
-//     },
-//         bookRoom: function() {
-//           console.log('Booking room...');
-//     }
-//     },
-// ];
-
-// export const getHotels = (req, res) => {
-//     console.log(`Hotels in the database: ${hotels}`);
-
-//     res.send(hotels);
-// }
-
-// // export const createUser = (req, res) => {   
-// //     const user = req.body;
-
-// //     users.push({...user, id: uuid()});
-    
-// //     console.log(`User [${user.username}] added to the database.`);
-// // };
-
-// // export const getUser = (req, res) => {
-// //     res.send(req.params.id)
-// // };
-
-// // export const deleteUser = (req, res) => { 
-// //     console.log(`user with id ${req.params.id} has been deleted`);
-    
-// //     users = users.filter((user) => user.id !== req.params.id);
-// // };
-
-// // export const updateUser =  (req,res) => {
-// //     const user = users.find((user) => user.id === req.params.id);
-    
-// //     user.username = req.body.username;
-// //     user.age = req.body.age;
-
-// //     console.log(`username has been updated to ${req.body.username}.age has been updated to ${req.body.age}`)
-// // };
-
-
 const hotels = [
     {
         "id": 1,
@@ -125,10 +46,12 @@ const hotels = [
     }
 ];
 
+//Endpoint Get All Hotels
 export const getHotels = (req, res) => {
     res.send(hotels);
 }
 
+//Endpoint Add Hotel
 export const addHotel = (req, res) => {
     const hotel = req.body;
 
@@ -137,6 +60,7 @@ export const addHotel = (req, res) => {
     res.send(`Hotel ${hotel.name} added to the database.`);
 }
 
+//Endpoint Get Hotel by ID
 export const getHotelbyId = (req, res) => {
     const { id } = req.params;
 
@@ -145,6 +69,7 @@ export const getHotelbyId = (req, res) => {
     res.send(foundHotelbyId);
 }
 
+//Endpoint Get Hotel by Star
 export const getHotelbyStar = (req, res) => {
     const { star } = req.params;
 
@@ -153,6 +78,7 @@ export const getHotelbyStar = (req, res) => {
     res.send(foundHotelbyStar);
 }
 
+//Endpoint Get Room from Hotel
 export const getRoomfromHotel = (req, res) => {
     const { id } = req.params;
 
@@ -161,6 +87,7 @@ export const getRoomfromHotel = (req, res) => {
     res.send(foundRoomfromHotel.room_type);
 }
 
+//Endpoint Update Hotel
 export const updateHotel = (req, res) => {
     const { id } = req.params;
 
